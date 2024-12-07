@@ -1,0 +1,23 @@
+emirhan
+
+#include <fcntl.h>
+#include <stdio.h>
+int main() 
+{
+    int fd[3];
+
+    fd[0] = open("emirhan.txt", O_RDONLY);
+    fd[1] = open("emirhan1.txt", O_RDONLY);
+    fd[2] = open("emirhan2.txt", O_RDONLY);
+    char *line;
+    
+    int i = 0;
+    while (i < 3)
+    {
+        line = get_next_line_bonus(&fd[i]);
+        printf("%s", line);
+        free(line);
+        i++;
+    }
+    return 0;
+}
